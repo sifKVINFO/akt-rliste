@@ -16,5 +16,14 @@
         "links": ["https://menneskeret.dk/emner/koen", "https://menneskeret.dk/udgivelser?c=All&field_date=&exposed_year=All&e=533", "https://menneskeret.dk/udgivelser"],
         "notes": ["IMR har et særskilt fokus på køn og udgiver bl.a. en årlig rapport. Men også andre af deres analyse er interessante for os.", "Bjarke Oxlund er ansvarlig."],
         "id": 1
+    },
+    {
+        "title": "CEFU – center for ungdomsforskning Aalborg Universitet",
+        "category": "INSTITUTTER OG FORSKNINGSCENTRE MV. PÅ UNIVERSITETER",
+        "checkFrequency": 6,
+        "checkedDates": ["2022-11-15"],
+        "links": ["https://www.cefu.dk/"],
+        "notes": ["Ikke decideret kønsforskning, men der kan være relevante rapporter i ny og næ."],
+        "id": 2
     }
 ]
