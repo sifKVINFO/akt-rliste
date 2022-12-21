@@ -99,7 +99,15 @@ div.content {
   padding: 1rem 2rem;
   background-color: #f2d8ca;
   display: none;
-  
+}
+div.window {
+  width: 32rem;
+  background-color: #cfe3d9;
+  padding: 1rem 2rem;
+  border: 2px solid #323b5e;
+}
+div.window input {
+  margin-bottom: 1rem;
 }
 
 .subTxt {

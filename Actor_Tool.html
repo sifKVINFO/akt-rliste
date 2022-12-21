@@ -35,8 +35,20 @@
 
 <h1>Aktører</h1>
 <button type="button" class="button">TILFØJ AKTØR</button> 
-<!-- https://www.w3schools.com/tags/tag_table.asp -->
-
+<div class="window">
+    <h2>Tilføj aktør</h2>
+    <label for="addTitle">Titel: </label>
+    <input type="text" id="addTitle"><br>
+    <label for="addCategori">Kategori: </label>
+    <input type="text" id="addCategori"><br>
+    <label for="addFrequency">Tjek hyppighed (måneder): </label>
+    <input type="text" id="addFrequency"><br>
+    <label for="addLinks">Links: </label>
+    <input type="text" id="addLinks"><br>
+    <label for="addNotes">Noter: </label>
+    <input type="text" id="addNotes"><br>
+    <button class="button close">TILFØJ</button>
+</div>
 <div class="searchContainer">
     <input type="text" class="inputBox" placeholder="Søg i Aktørlisten" id="searchString" name="searchString">
     <select name="sortType" class="dropDown">

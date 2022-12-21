@@ -1,6 +1,8 @@
 let actors;
 let addListeners = [];
 let editListeners = [];
+let first = true;
+
 fetch("https://raw.githubusercontent.com/sifKVINFO/akt-rliste/main/actors_subset.JSON")
     .then((response) => response.json())
     .then((data) => {
@@ -55,6 +57,19 @@ function dateSubtraction(date1, date2) {
     return {months: Math.floor(dayDifference/30.5), days: dayDifference%30};
 }
 function addCheckToElement(actor) {
+    if(actor.checkedDates.length == 0) {
+        return {
+            title: actor.title,
+            category: actor.category,
+            checkFrequency: actor.checkFrequency,
+            checkedDates: actor.checkedDates,
+            nextCheck: {months: -100, days: -100},
+            links: actor.links,
+            notes: actor.notes,
+            id: actor.id
+        }
+    }
+    
     let nextCheckDate = addMonths(new Date(actor.checkedDates[actor.checkedDates.length-1]), actor.checkFrequency);
     nextCheckDate = new Date(nextCheckDate.year + "-" + nextCheckDate.month + "-" + nextCheckDate.date);
     return {
@@ -68,11 +83,7 @@ function addCheckToElement(actor) {
         id: actor.id
     }
 }
-function addAddFunction(id) {
-    return function(id) {
-        console.log("Now we will add a check to the element with ID=" + id);
-    }
-}
+
 function editElement(id) {
     console.log("Now we will edit the element with ID=" + id);
 }
@@ -130,14 +141,11 @@ function displayActors(arrayOfActors) {
         HTMLelementString += createDiv(actorCategory + notes + links + checks + addButton + editButton, "content");
         document.getElementById("actorList").innerHTML += HTMLelementString;
 
-        //Add event listener
-        addListeners[i] = document.getElementById("add-" + arrayOfActors[i].id);
-        addListeners[i].addEventListener("click", addAddFunction(arrayOfActors[i].id));
+        //Create hidden windows
+        //Add hidden windows to DOM
     }
-
-
-    
 }
+
 
 function afterLoading() {
     for(let i = 0; i < actors.length; i++) {
@@ -154,6 +162,20 @@ function afterLoading() {
             this.classList.toggle("active");
             let content = this.nextElementSibling;
             content.style.display = (content.style.display === "block") ? "none" : "block";
+            if(first) {
+                first = false;
+                console.log("adding Listeners!")
+                for(let i = 0; i < actors.length; i++) {
+                    addListeners[i] = document.getElementById("add-" + actors[i].id);
+                    addListeners[i].addEventListener("click", (event) => {
+                        console.log("Now we will add a check to the element with ID=" + actors[i].id);
+                    });
+                    editListeners[i] = document.getElementById("edit-" + actors[i].id);
+                    editListeners[i].addEventListener("click", (event) => {
+                        console.log("Now we will open a window for editing the element with ID=" + actors[i].id);
+                    });
+                }
+            }
         })
     }
 }
