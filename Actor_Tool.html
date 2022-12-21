@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="da">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
         <link rel="stylesheet" href="styles.css">
     </head>
 <body>
@@ -11,7 +14,7 @@
     <li>MINISTERIER</li>
     <li>POLITISKE UDVALG/NETVÆRK</li>
     <li>INSTITUTTER OG FORSKNINGSCENTRE MV. PÅ UNIVERSITETER</li>
-    <li>VIDENSCENTRE, KULTURINSTITUTIONER, NGO’ER O. LIGN.</li>
+    <li>VIDENSCENTRE, KULTURINSTITUTIONER, NGO'ER O. LIGN.</li>
     <li>KONSULENTFIRMAER</li>
     <li>TÆNKETANKE</li>
     <li>ARBEJDSGIVER- OG ARBEJDSTAGERFORENINGER</li>
@@ -34,20 +37,18 @@
 <button type="button" class="button">TILFØJ AKTØR</button> 
 <!-- https://www.w3schools.com/tags/tag_table.asp -->
 
-<form>
+<div class="searchContainer">
     <input type="text" class="inputBox" placeholder="Søg i Aktørlisten" id="searchString" name="searchString">
-</form>
-<span id="actorList">
-    <div class = "collapsible even">Noget tekst</div>
-    <div class = "content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-    <div class = "collapsible odd">Noget andet tekst</div>
-    <div class = "content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-    <div class = "collapsible even">Noget tekst</div>
-    <div class = "content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-    <div class = "collapsible odd">Noget andet tekst</div>
-    <div class = "content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-</span>
+    <select name="sortType" class="dropDown">
+        <option value="none">--SORTÉR--</option>
+        <option value="alphabetic">ABC</option>
+        <option value="category">Kategori</option>
+        <option value="Next">Næste tjek</option>
+    </select>
+</div>
 
-<script src="script.js"></script>
+<span id="actorList"></span>
+<p id="loadingText">Henter aktører...</p>
+<script src="script.js" defer></script>
 </body>
 </html> 
